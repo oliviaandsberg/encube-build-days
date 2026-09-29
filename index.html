@@ -173,8 +173,7 @@ footer { margin-top: 96px; border-top: 1px solid var(--line); padding: 34px 0 64
 
 /* animated gradient frame — same light as the button */
 .glow-frame {
-  position: relative; border-radius: 20px; padding: 0; overflow: hidden; isolation: isolate;
-  background: var(--ink-2);
+  position: relative; border-radius: 20px;
 }
 .gf-glow { position: absolute; left: 50%; top: 50%; width: 180%; height: 180%; margin-left: -90%; margin-top: -90%; opacity: 0; pointer-events: none; }
 .gf-a { background: conic-gradient(from 0deg, transparent 0 40%, #8ECFB9 55%, #7D5EEB 68%, #7D5EEB 76%, transparent 92%);
@@ -187,7 +186,7 @@ footer { margin-top: 96px; border-top: 1px solid var(--line); padding: 34px 0 64
 @keyframes gf-core-pulse {
   0%, 5% { transform: scale(1.012); } 32.5% { transform: scale(1.002); } 52.5% { transform: scale(0.997); }
   72.5% { transform: scale(1.002); } 97.5%, 100% { transform: scale(1.012); } }
-.glow-frame > .register-card { position: relative; z-index: 1; background: transparent; border: none; border-radius: inherit; }
+.glow-frame > .register-card { border: 1px solid var(--line-2); border-radius: 20px; background: var(--ink-2); }
 @media (prefers-reduced-motion: reduce) {
   .gf-a, .gf-b, .gf-core { animation: none; }
   .gf-a { opacity: 1; transform: rotate(270deg); }
@@ -281,9 +280,6 @@ footer { margin-top: 96px; border-top: 1px solid var(--line); padding: 34px 0 64
 <section class="register" id="register">
   <div class="wrap">
     <div class="glow-frame">
-        <span class="gf-glow gf-b" aria-hidden="true"></span>
-        <span class="gf-glow gf-a" aria-hidden="true"></span>
-        <span class="gf-core" aria-hidden="true"></span>
         <div class="register-card">
       <div class="register-copy">
         <h2>Register</h2>
