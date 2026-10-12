@@ -94,7 +94,7 @@ h1 em { font-style: normal; color: var(--purple); }
 
 /* info strip */
 .info {
-  margin-top: 8px; display: grid; grid-template-columns: repeat(4, 1fr);
+  margin-top: 8px; display: grid; grid-template-columns: repeat(2, 1fr);
   border: 1px solid var(--line-2); border-radius: 16px; background: var(--ink-2); overflow: hidden;
 }
 .info-cell { padding: 22px 24px; border-right: 1px solid var(--line); }
@@ -126,6 +126,65 @@ h2 { margin: 0; font-weight: 500; font-size: clamp(30px, 4vw, 46px); letter-spac
 .slot-sub { display: block; margin-top: 6px; font-size: 14.5px; color: var(--grey); }
 .slot.big .slot-body { font-size: 19px; font-weight: 500; letter-spacing: -0.01em; }
 
+/* hackathon */
+.hack-section-head { display: block; }
+.rules-lead {
+  margin: 18px 0 0; max-width: 40ch;
+  font-size: clamp(20px, 2.2vw, 28px); line-height: 1.3; letter-spacing: -0.022em;
+  color: var(--purple-lt); font-weight: 500;
+}
+
+.hack-box {
+  border: 1px solid var(--line-2); border-radius: 18px; overflow: hidden;
+  background: var(--line-2); display: flex; flex-direction: column; gap: 1px;
+}
+.hack-head { background: var(--ink-2); padding: 20px 28px; }
+.hack-title { margin: 0; font-size: 14px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-lt); }
+
+.rules-band { background: #262230; padding: 32px 28px 36px; }
+.rules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px 34px; }
+.rule { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; row-gap: 0; align-items: start; }
+.rule-no { grid-column: 1; grid-row: 1; display: flex; flex: none; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%;
+  border: 1px solid rgba(161,136,236,0.45); background: rgba(125,94,235,0.14); }
+.rule-no i { font-style: normal; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: var(--purple-lt); }
+.rule-name { grid-column: 2; margin: 4px 0 8px; font-size: 19px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.25; color: var(--white); }
+.rule-text { grid-column: 2; margin: 0; font-size: 15.5px; line-height: 1.55; color: #ADA9B6; }
+
+.teams-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line-2); }
+.team { background: var(--ink-2); padding: 26px 28px 28px; display: flex; flex-direction: column; transition: background .22s ease; }
+.team:hover { background: #312C38; }
+.team-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.team-no { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; color: var(--purple-lt); }
+.team-count { font-size: 12px; letter-spacing: 0.04em; color: #6F6B79; }
+.team-name { margin: 0 0 16px; font-size: 19px; font-weight: 500; line-height: 1.3; letter-spacing: -0.015em; color: var(--white); }
+.team-people { margin: auto 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.team-more { margin-top: 18px; }
+.team-more summary {
+  list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 0; font-size: 14px; font-weight: 500; color: var(--purple-lt);
+}
+.team-more summary::-webkit-details-marker { display: none; }
+.team-more summary::after {
+  content: ""; width: 7px; height: 7px; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor;
+  transform: rotate(45deg) translate(-2px, -2px); transition: transform .2s ease;
+}
+.team-more[open] summary::after { transform: rotate(-135deg) translate(-2px, -2px); }
+.team-more summary:hover { color: var(--white); }
+.team-detail { padding-top: 6px; }
+.team-detail h5 {
+  margin: 16px 0 6px; font-size: 11.5px; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; color: #8E8A98;
+}
+.team-detail h5:first-child { margin-top: 8px; }
+.team-detail p { margin: 0 0 8px; font-size: 15px; line-height: 1.55; color: #C9C6D0; }
+.team-detail p:last-child { margin-bottom: 0; }
+
+.team-people span {
+  display: inline-block; padding: 5px 11px; border-radius: 999px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+  font-size: 13.5px; line-height: 1.3; color: #C9C6D0;
+}
+
 /* register */
 .register { padding: 92px 0 0; }
 .register-card {
@@ -134,12 +193,10 @@ h2 { margin: 0; font-weight: 500; font-size: clamp(30px, 4vw, 46px); letter-spac
 }
 .register-copy { min-width: 0; }
 .register-copy h2 { margin-bottom: 14px; }
-.register-copy p { margin: 0; color: var(--grey); font-size: 17px; max-width: 40ch; }
-.register-copy .hint { margin: 18px 0 24px; font-size: 14px; color: var(--grey); max-width: 34ch; }
-.gp-sm { font-size: 17px; }
+.register-copy p { margin: 0; color: var(--grey); font-size: 17px; max-width: 46ch; }
+.slack-card { grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
+.slack-cta { display: flex; justify-content: flex-end; }
 .register-copy .fallback a { color: var(--purple-lt); }
-.luma { width: 460px; max-width: 100%; min-width: 0; }
-.luma iframe { display: block; width: 100%; height: 450px; border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; background: #fff; }
 
 footer { margin-top: 96px; border-top: 1px solid var(--line); padding: 34px 0 64px; background: var(--ink); }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; font-size: 14px; color: var(--grey); }
@@ -154,6 +211,12 @@ footer { margin-top: 96px; border-top: 1px solid var(--line); padding: 34px 0 64
 @media (max-width: 920px) {
   .wrap { padding: 0 40px; }
   .days-grid { grid-template-columns: 1fr; }
+  .teams-grid { grid-template-columns: 1fr; }
+  .rules-grid { grid-template-columns: 1fr; gap: 24px; }
+  .rules-band { padding: 26px 22px 30px; }
+  .hack-head { padding: 18px 22px; }
+  .team { padding: 24px 22px 26px; }
+  .slack-cta { justify-content: flex-start; }
   .info { grid-template-columns: repeat(2, 1fr); }
   .info-cell:nth-child(2) { border-right: none; }
   .info-cell:nth-child(1), .info-cell:nth-child(2) { border-bottom: 1px solid var(--line); }
@@ -249,13 +312,13 @@ footer { margin-top: 96px; border-top: 1px solid var(--line); padding: 34px 0 64
       <h1><em>Build</em> Days</h1>
       <p class="lede">Three days of building together: <strong>the team, the company</strong> and hopefully some cool stuff (up to you 😎).</p>
       <div class="hero-cta">
-        <a class="gp" href="https://luma.com/embed/event/evt-gmfhBuDxplITqyh/simple" target="_blank" rel="noopener">
+        <a class="gp" href="#agenda">
           <span class="gp-glow gp-b" aria-hidden="true"></span>
           <span class="gp-glow gp-a" aria-hidden="true"></span>
           <span class="gp-core" aria-hidden="true"></span>
           <span class="gp-fill" aria-hidden="true"></span>
           <span class="gp-ring" aria-hidden="true"></span>
-          <span class="gp-label">Register</span>
+          <span class="gp-label">See the schedule</span>
         </a>
       </div>
     </div>
@@ -265,11 +328,11 @@ footer { margin-top: 96px; border-top: 1px solid var(--line); padding: 34px 0 64
 
 <section class="section info-section">
   <div class="wrap">
-    <div class="info"><div class="info-cell"><div class="info-key">Dates</div><div class="info-val">October 13&ndash;15</div></div><div class="info-cell"><div class="info-key">Where</div><div class="info-val">Encube office</div></div><div class="info-cell"><div class="info-key">RSVP</div><div class="info-val">Latest Tuesday Oct 6</div><a class="info-link" href="https://luma.com/embed/event/evt-gmfhBuDxplITqyh/simple" target="_blank" rel="noopener">Register here &rarr;</a></div><div class="info-cell"><div class="info-key">Hackathon projects</div><div class="info-val">DL Friday Oct 2</div><a class="info-link" href="https://app.notion.com/p/encube/3deddc703f7880189d67d11590a6cef3?pvs=106" target="_blank" rel="noopener">Submit your ideas &rarr;</a></div></div>
+    <div class="info"><div class="info-cell"><div class="info-key">Dates</div><div class="info-val">October 13&ndash;15</div></div><div class="info-cell"><div class="info-key">Where</div><div class="info-val">Encube office</div></div></div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="agenda">
   <div class="wrap">
     <div class="section-head">
       <h2>Agenda</h2>
@@ -278,33 +341,147 @@ footer { margin-top: 96px; border-top: 1px solid var(--line); padding: 34px 0 64
   </div>
 </section>
 
-<section class="register" id="register">
+
+<section class="section" id="hackathon">
+  <div class="wrap">
+    <div class="section-head hack-section-head">
+      <h2>Hackathon</h2>
+      <p class="rules-lead">Buildable in a day, demoable in 5 minutes and valuable if continued.</p>
+    </div>
+
+    <div class="hack-box">
+      <div class="hack-head"><h3 class="hack-title">The rules</h3></div>
+      <div class="rules-band">
+      <div class="rules-grid">
+        <article class="rule"><span class="rule-no"><i>01</i></span><h4 class="rule-name">Scoped for one day</h4><p class="rule-text">Have something to show by the end of the day.</p></article>
+        <article class="rule"><span class="rule-no"><i>02</i></span><h4 class="rule-name">Relevant to Encube</h4><p class="rule-text">Product, customer success or how we operate. No side projects.</p></article>
+        <article class="rule"><span class="rule-no"><i>03</i></span><h4 class="rule-name">Creates value</h4><p class="rule-text">Something that brings us value. Not a throw-away project.</p></article>
+        <article class="rule"><span class="rule-no"><i>04</i></span><h4 class="rule-name">Show, don&rsquo;t tell</h4><p class="rule-text">A working prototype, clickable flow, script or visual demo. No slides.</p></article>
+        <article class="rule"><span class="rule-no"><i>05</i></span><h4 class="rule-name">Not business as usual</h4><p class="rule-text">Explore something new.</p></article>
+        <article class="rule"><span class="rule-no"><i>06</i></span><h4 class="rule-name">Team-based</h4><p class="rule-text">No solo projects.</p></article>
+      </div>
+      </div>
+      <div class="hack-head"><h3 class="hack-title">Teams</h3></div>
+      <div class="teams-grid">
+        <article class="team">
+          <div class="team-top"><span class="team-no">01</span><span class="team-count">2 people</span></div>
+          <h4 class="team-name">Encube Event Hub</h4>
+          <p class="team-people"><span>Olivia</span><span>Noa</span></p>
+          <details class="team-more">
+            <summary><span>Read more</span></summary>
+            <div class="team-detail">
+              <h5>Problem / opportunity</h5><p>Event data lives in three tools that don&#x27;t talk to each other, so every event requires a lot of manual work: exporting guest lists, cleaning them up and moving them between Luma, Customer.io and Zero by hand. On top of that, our event pages today don&#x27;t look or feel like Encube. A Luma-style tool that&#x27;s fully Encube branded and connected to Customer.io and Zero removes the manual exports and makes follow-up instant.</p>
+              <h5>Who benefits</h5><p>Marketing and sales.</p>
+              <h5>Expected outcome</h5><p>A working prototype. We create an event page, register a few test guests and see them in a live registration overview. Then we pick a segment like confirmed, waitlisted or no-shows, send them a Customer.io email and push the guest list into Zero.</p>
+            </div>
+          </details>
+        </article>
+        <article class="team">
+          <div class="team-top"><span class="team-no">02</span><span class="team-count">4 people</span></div>
+          <h4 class="team-name">Pipeline follow-up support</h4>
+          <p class="team-people"><span>Jonathan</span><span>Leo H</span><span>Johan</span><span>Sten</span></p>
+          <details class="team-more">
+            <summary><span>Read more</span></summary>
+            <div class="team-detail">
+              <h5>Problem / opportunity</h5><p>As the sales pipeline grows with a large number of leads, it becomes more difficult to stay on top of all of the opportunities and next steps in a small team. We can automate follow-up reminders and draft suggestions for those follow-ups based on either a timing window for the follow-up or on context in an email chain, meeting notes, etc, to make sure that there aren&#x27;t any dropped balls when managing key late-stage opportunities and a large early-stage volume in tandem.</p>
+              <h5>Who benefits</h5><p>Commercial, and everyone if we progress more opportunities.</p>
+              <h5>Expected outcome</h5><p>A workflow that sends a Slack ping or email with context from the deal and last interaction, plus a suggested follow-up message or action to keep the conversation progressing.</p>
+            </div>
+          </details>
+        </article>
+        <article class="team">
+          <div class="team-top"><span class="team-no">03</span><span class="team-count">5 people</span></div>
+          <h4 class="team-name">Encube Pulse, company metrics carousel</h4>
+          <p class="team-people"><span>Philip</span><span>Micke</span><span>Staffan</span><span>Tracey</span><span>Caroline</span></p>
+          <details class="team-more">
+            <summary><span>Read more</span></summary>
+            <div class="team-detail">
+              <h5>Problem / opportunity</h5><p>We have a lot of useful data and metrics across Encube, commercial progress, customer usage, product activity, engineering, support, but much of it lives in different tools and is only visible when someone actively looks for it or shares it.</p><p>The opportunity is to make important company signals more visible in our everyday environment by creating a metric carousel that continuously runs on one of the office screens. The carousel should be open for any department to contribute to, making it a shared company surface rather than a dashboard owned by one team.</p>
+              <h5>Who benefits</h5><p>The whole Encube team. Any department could contribute metrics or signals they think are useful for the company to see, Commercial, Product, Engineering, Operations, Customer Success.</p>
+              <h5>Expected outcome</h5><p>A working carousel that can run continuously on an office screen and rotate through a first set of real Encube metrics. Ideally the MVP also includes a simple way for teams to add or configure their own metric cards without changing the core carousel. For the demo: add a metric, see it appear, run the carousel as it would look on an office screen.</p>
+            </div>
+          </details>
+        </article>
+        <article class="team">
+          <div class="team-top"><span class="team-no">04</span><span class="team-count">3 people</span></div>
+          <h4 class="team-name">Align CAD models to engineering drawings</h4>
+          <p class="team-people"><span>Danny</span><span>Yuehan</span><span>Janhvi</span></p>
+          <details class="team-more">
+            <summary><span>Read more</span></summary>
+            <div class="team-detail">
+              <h5>Problem / opportunity</h5><p>This is the first step towards understanding 2D geometry. It would let us figure out which geometric feature in the 2D drawing corresponds to which feature in a b-rep, and attribute semantics to the geometry.</p>
+              <h5>Who benefits</h5><p>This enables a bunch of downstream use cases. One is to augment 3D models with callouts. Another is to identify mating surfaces between drawings and see whether their tolerances line up. The sky is the limit.</p>
+              <h5>Expected outcome</h5><p>A UI where you can explore a 2D drawing and highlight the same geometric feature in multiple different views. Like, this hole in view A is the same as this hole in view B.</p>
+            </div>
+          </details>
+        </article>
+        <article class="team">
+          <div class="team-top"><span class="team-no">05</span><span class="team-count">5 people</span></div>
+          <h4 class="team-name">PCB Drawing Intelligence</h4>
+          <p class="team-people"><span>Andy</span><span>Kristján</span><span>Tony</span><span>Artem</span><span>Fred</span></p>
+          <details class="team-more">
+            <summary><span>Read more</span></summary>
+            <div class="team-detail">
+              <h5>Problem / opportunity</h5><p>We are getting more customers who have PCB and circuit diagram drawings. It would be good to have specific checks related to these and to improve our bounding box model for these drawings.</p>
+              <h5>Who benefits</h5><p>The ML team gets annotated circuit diagrams, either from customer data or publicly available datasets. We expand our drawings capabilities beyond engineering drawings, while learning what from our current pipeline is reusable across different types of drawings and what has to be bespoke. From a product and commercial perspective we may also learn how customers with PCB drawings differ in their needs and the types of checks they care about.</p>
+              <h5>Expected outcome</h5><p>Drawing intelligence with PCB specific findings and annotations.</p>
+            </div>
+          </details>
+        </article>
+        <article class="team">
+          <div class="team-top"><span class="team-no">06</span><span class="team-count">4 people</span></div>
+          <h4 class="team-name">Bezier Launchpad</h4>
+          <p class="team-people"><span>Elina</span><span>Miki</span><span>Mike</span><span>Sharan</span></p>
+          <details class="team-more">
+            <summary><span>Read more</span></summary>
+            <div class="team-detail">
+              <h5>Problem / opportunity</h5><p>Before users can do any real work in Encube today, they have to decide which app to open, how to set up a canvas, and where each file goes. That upfront setup is friction, especially for new or occasional users. It also means Bezier only shows up once they&#x27;re already deep in the product.</p><p>The opportunity is to flip the order. Users bring their materials and describe their goal, and Bezier prepares the workspace for them. It&#x27;s like walking into a kitchen where the right pots and seasonings are already laid out for the dish you want to cook. This makes Bezier the front door to Encube, in line with our Bezier-First direction.</p>
+              <h5>Who benefits</h5><p>Customers: less setup, faster time to value, and no need to know our app structure before getting started. Sales and Customer Success: a simpler, more impressive first experience for demos, trials and onboarding. Product: a scalable entry pattern, where future apps and tools are surfaced through Bezier rather than added to the navigation.</p>
+              <h5>Expected outcome</h5><p>An interactive prototype covering one or two realistic scenarios, for example a drawing review package. The user uploads a set of files and writes what they want to achieve. Bezier presents its interpretation: the task, the expected outcome and which files matter. The user confirms or adjusts it, then a pre-configured Encube session opens with the right app, tools and assets ready, plus a suggested first step.</p><p>Out of scope for the day: routing across all apps, production-level accuracy and real permission handling.</p>
+            </div>
+          </details>
+        </article>
+        <article class="team">
+          <div class="team-top"><span class="team-no">07</span><span class="team-count">3 people</span></div>
+          <h4 class="team-name">Explore multiple design options simultaneously in CAD agent</h4>
+          <p class="team-people"><span>Liss</span><span>Johnny</span><span>George</span></p>
+          <details class="team-more">
+            <summary><span>Read more</span></summary>
+            <div class="team-detail">
+              <h5>Problem / opportunity</h5><p>It would be insanely cool if we could ask Bezier, the CAD agent, to explore multiple options of a design in parallel, and then lay out the results on a canvas. It could also outline the highlights and lowlights of each design, cheap but fragile, cool looking but expensive, and so on.</p>
+              <h5>Who benefits</h5><p>The customer would love it.</p>
+              <h5>Expected outcome</h5><p>A fully functional loop where we ask Bezier and it publishes five variants of the same idea on a canvas.</p>
+            </div>
+          </details>
+        </article>
+        <article class="team">
+          <div class="team-top"><span class="team-no">08</span><span class="team-count">6 people</span></div>
+          <h4 class="team-name">Agentic War Room</h4>
+          <p class="team-people"><span>Andreas</span><span>Mason</span><span>Sveinn</span><span>Emil</span><span>Leonardo</span><span>Ilia</span></p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="register" id="slack">
   <div class="wrap">
     <div class="glow-frame">
-        <div class="register-card">
-      <div class="register-copy">
-        <h2>Register</h2>
-        <p>RSVP no later than Tuesday October&nbsp;6.</p>
-        <p class="hint">Scroll inside the form to sign up without leaving this page.</p>
-        <a class="gp gp-sm" href="https://luma.com/embed/event/evt-gmfhBuDxplITqyh/simple" target="_blank" rel="noopener">
-          <span class="gp-glow gp-b" aria-hidden="true"></span>
-          <span class="gp-glow gp-a" aria-hidden="true"></span>
-          <span class="gp-core" aria-hidden="true"></span>
-          <span class="gp-fill" aria-hidden="true"></span>
-          <span class="gp-ring" aria-hidden="true"></span>
-          <span class="gp-label">Register</span>
-        </a>
-      </div>
-      <div class="luma">
-        <iframe
-          src="https://luma.com/embed/event/evt-gmfhBuDxplITqyh/simple"
-          title="Register for Build days"
-          frameborder="0"
-          allow="fullscreen; payment"
-          aria-hidden="false"
-          tabindex="0"
-        ></iframe>
-      </div>
+      <div class="register-card slack-card">
+        <div class="register-copy">
+          <h2>Everything happens in Slack</h2>
+          <p>All communication about Build Days runs in one channel: schedule changes, hackathon questions and whatever comes up during the three days.</p>
+        </div>
+        <div class="slack-cta">
+          <a class="gp" href="https://getencube.slack.com/archives/C0C3BH0HTNU" target="_blank" rel="noopener">
+            <span class="gp-glow gp-b" aria-hidden="true"></span>
+            <span class="gp-glow gp-a" aria-hidden="true"></span>
+            <span class="gp-core" aria-hidden="true"></span>
+            <span class="gp-fill" aria-hidden="true"></span>
+            <span class="gp-ring" aria-hidden="true"></span>
+            <span class="gp-label">Open the channel</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
